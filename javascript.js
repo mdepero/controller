@@ -13,7 +13,7 @@ if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
 }
 
 function setColor(){
-	color = document.getELementById('color').value;
+	color = document.getElementById('color').value;
 	xmlhttp.open("GET","http://107.10.18.206/?set&color="+color+"&t=" + Math.random(),true);
 	xmlhttp.send();
 }
