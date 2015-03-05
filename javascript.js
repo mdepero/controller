@@ -15,7 +15,6 @@ if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
 function setColor(){
 	var color = document.getElementById('color').value;
 	var url = "http://107.10.18.206/serverfile.php?set&color="+color+"&t=" + Math.random();
-	alert(url);
 	xmlhttp.open("GET",url,true);
 	xmlhttp.send();
 }
@@ -25,3 +24,12 @@ function getColor(){
 	xmlhttp.send();
 	document.getElementById("test").innerHTML=xmlhttp.responseText;
 }
+
+
+// function run(){
+// 	document.getElementById("tester").style.backgroundColor = "#" + getColor();
+// }
+
+
+
+// window.setInterval(function () {run();}, 500);
