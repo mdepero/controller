@@ -11,7 +11,7 @@ header("access-control-allow-origin: *");
 
 if(isset($_REQUEST['set'])){
 	$myfile = fopen("test.txt", "w") or die("Unable to open file!");
-	fwrite($myfile, $_REQUEST['color']);
+	fwrite($myfile, $_GET['color']);
 	fclose($myfile);
 }
 
