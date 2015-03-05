@@ -21,9 +21,13 @@ function setColor(){
 
 function getColor(){
 	var url = "http://107.10.18.206/serverfile.php?get&t=" + Math.random();
-	xmlhttp.open("GET",url,true);
-	xmlhttp.send();
-	alert(xmlhttp.responseText);
+	xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            alert(xmlhttp.responseText);
+        }
+    }
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
 }
 
 
