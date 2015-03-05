@@ -23,7 +23,7 @@ function getColor(){
 	var url = "http://107.10.18.206/serverfile.php?get&t=" + Math.random();
 	xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            alert(xmlhttp.responseText);
+            document.getElementById('tester').style.backgroundColor = "#"+xmlhttp.responseText;
         }
     }
     xmlhttp.open("GET", url, true);
@@ -31,10 +31,10 @@ function getColor(){
 }
 
 
-// function run(){
-// 	document.getElementById("tester").style.backgroundColor = "#" + getColor();
-// }
+function run(){
+	document.getElementById("tester").style.backgroundColor = "#" + getColor();
+}
 
 
 
-// window.setInterval(function () {run();}, 500);
+window.setInterval(function () {run();}, 500);
