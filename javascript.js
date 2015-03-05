@@ -20,9 +20,10 @@ function setColor(){
 }
 
 function getColor(){
-	xmlhttp.open("GET","http://107.10.18.206/serverfile.php?get&t=" + Math.random(),true);
+	var url = "http://107.10.18.206/serverfile.php?get&t=" + Math.random();
+	xmlhttp.open("GET",url,true);
 	xmlhttp.send();
-	document.getElementById("test").innerHTML=xmlhttp.responseText;
+	alert(xmlhttp.responseText);
 }
 
 
