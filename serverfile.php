@@ -5,6 +5,10 @@
  * All Code by Matt DePero
  */
 
+header('content-type: application/json; charset=utf-8');
+header("access-control-allow-origin: *");
+
+
 if(isset($_REQUEST['set'])){
 	$myfile = fopen("test.txt", "w") or die("Unable to open file!");
 	fwrite($myfile, $_REQUEST['color']);
