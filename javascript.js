@@ -19,7 +19,7 @@ function setColor(){
 	xmlhttp.send();
 }
 
-function getColor(){
+function getDatad(){
 	var url = "http://107.10.18.206/serverfile.php?get&t=" + Math.random();
 	xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
