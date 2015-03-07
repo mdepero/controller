@@ -75,4 +75,4 @@ function runGame(){
 
 
 
-window.setInterval(function () {runGame();}, 200);
+window.setInterval(function () {runGame();}, 20000);
