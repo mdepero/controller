@@ -10,15 +10,15 @@ header("access-control-allow-origin: *");
 
 
 if(isset($_REQUEST['set'])){
-	$myfile = fopen("test.txt", "w") or die("Unable to open file!");
-	$data = $_GET["color"];
+	$myfile = fopen("data.txt", "w") or die("Unable to open file!");
+	$data = $_GET["set"];
 	fwrite($myfile, $data);
 	fclose($myfile);
 }
 
 if(isset($_REQUEST['get'])){
-	$myfile = fopen("test.txt", "r") or die("Unable to open file!");
-	echo fread($myfile,filesize("test.txt"));
+	$myfile = fopen("data.txt", "r") or die("Unable to open file!");
+	echo fread($myfile,filesize("data.txt"));
 	fclose($myfile);
 }
 

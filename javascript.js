@@ -3,6 +3,10 @@
  * All code by Matt DePero
  */
 
+// URL to folder that contains serverfile.php, including '/' on the end
+var rootURL = "http://107.10.18.206/";
+
+
 var xmlhttp;
 if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
 
@@ -12,18 +16,17 @@ if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
 	xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
 }
 
-function setColor(){
-	var color = document.getElementById('color').value;
-	var url = "http://107.10.18.206/serverfile.php?set&color="+color+"&t=" + Math.random();
+function setData( data ){
+	var url = rootURL+"serverfile.php?set="+data+"&t=" + Math.random();
 	xmlhttp.open("GET",url,true);
 	xmlhttp.send();
 }
 
-function getDatad(){
-	var url = "http://107.10.18.206/serverfile.php?get&t=" + Math.random();
+function getData(){
+	var url = rootURL+"serverfile.php?get&t=" + Math.random();
 	xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            document.getElementById('tester').style.backgroundColor = "#"+xmlhttp.responseText;
+            return xmlhttp.responseText;
         }
     }
     xmlhttp.open("GET", url, true);
