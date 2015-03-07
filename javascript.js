@@ -30,9 +30,9 @@ if (window.DeviceMotionEvent != undefined) {
 		az = e.accelerationIncludingGravity.z;
 
 		if ( e.rotationRate ) {
-			document.getElementById("rotationAlpha").innerHTML = e.rotationRate.alpha;
-			document.getElementById("rotationBeta").innerHTML = e.rotationRate.beta;
-			document.getElementById("rotationGamma").innerHTML = e.rotationRate.gamma;
+			e.rotationRate.alpha;
+			e.rotationRate.beta;
+			e.rotationRate.gamma;
 		}		
 	}
 }
