@@ -64,7 +64,7 @@ function getData(){
 
 
 function runGame(){
-	var array = "[23,45,000]";
+	var array = [23,45,000];
 	alert(array[1]);
 }
 
@@ -75,4 +75,4 @@ function runGame(){
 
 
 
-window.setInterval(function () {runGame();}, 20000);
+window.setInterval(function () {runGame();}, 2000);
