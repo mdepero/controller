@@ -16,6 +16,35 @@ if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
 	xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
 }
 
+
+
+// Set Methods
+
+var ax,ay,az;
+
+if (window.DeviceMotionEvent != undefined) {
+	window.ondevicemotion = function(e) {
+
+		ax = e.accelerationIncludingGravity.x;
+		ay = e.accelerationIncludingGravity.y;
+		az = e.accelerationIncludingGravity.z;
+
+		if ( e.rotationRate ) {
+			document.getElementById("rotationAlpha").innerHTML = e.rotationRate.alpha;
+			document.getElementById("rotationBeta").innerHTML = e.rotationRate.beta;
+			document.getElementById("rotationGamma").innerHTML = e.rotationRate.gamma;
+		}		
+	}
+}
+
+function runSetter(){
+	getAndSendValues();
+}
+
+function getAndSendValues(){
+
+}
+
 function setData( data ){
 	var url = rootURL+"serverfile.php?set="+data+"&t=" + Math.random();
 	xmlhttp.open("GET",url,true);
@@ -34,10 +63,16 @@ function getData(){
 }
 
 
-function run(){
-	document.getElementById("tester").style.backgroundColor = "#" + getColor();
+function runGame(){
+	var array = "[23,45,000]";
+	alert(array[1]);
 }
 
 
 
-window.setInterval(function () {run();}, 500);
+
+
+
+
+
+window.setInterval(function () {runGame();}, 200);
