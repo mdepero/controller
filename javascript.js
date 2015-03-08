@@ -27,16 +27,9 @@ var ax,ay,bz;
 if (window.DeviceMotionEvent != undefined) {
 	window.ondevicemotion = function(e) {
 
-		alert("started");
-		
-		ax = event.accelerationIncludingGravity.x * 5;
-		ay = event.accelerationIncludingGravity.y * 5;
-
-		// ax = e.accelerationIncludingGravity.x;
-		// ay = e.accelerationIncludingGravity.y;
-		// az = e.accelerationIncludingGravity.z;
-
-		alert(ax);
+		ax = e.accelerationIncludingGravity.x;
+		ay = e.accelerationIncludingGravity.y;
+		az = e.accelerationIncludingGravity.z;
 
 		// if ( e.rotationRate ) {
 		// 	e.rotationRate.alpha;
@@ -45,7 +38,7 @@ if (window.DeviceMotionEvent != undefined) {
 		// }		
 	}
 }
-/*
+
 function runSetter(){
 	getAndSendValues();
 }
@@ -85,4 +78,4 @@ function runGame(){
 	document.getElementById('consol').innerHTML = array;
 }
 
-*/
+
