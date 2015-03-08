@@ -27,6 +27,8 @@ var ax,ay,bz;
 if (window.DeviceMotionEvent != undefined) {
 	window.ondevicemotion = function(e) {
 
+		alert("started");
+
 		ax = e.accelerationIncludingGravity.x;
 		ay = e.accelerationIncludingGravity.y;
 		az = e.accelerationIncludingGravity.z;
@@ -40,7 +42,7 @@ if (window.DeviceMotionEvent != undefined) {
 		// }		
 	}
 }
-
+/*
 function runSetter(){
 	getAndSendValues();
 }
@@ -80,4 +82,4 @@ function runGame(){
 	document.getElementById('consol').innerHTML = array;
 }
 
-
+*/
