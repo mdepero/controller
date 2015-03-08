@@ -65,7 +65,7 @@ function setData( data ){
 // +----------------------------------------+
 
 
-var returnedData = "0,0,0",accX=0,accY=0,accZ=0,left = 50,top = 50,direction = 0,speed=4;
+var returnedData = "0,0,0",accX=0,accY=0,accZ=0,x = 50,y = 50,direction = 0,speed=4;
 function fetchData(){
 	var url = serverRootURL+"serverfile.php?get&t=" + Math.random();
 	xmlhttp.onreadystatechange = function() {
@@ -89,18 +89,18 @@ function runGame(){
 	getData();
 	direction += accY/15.0;
 
-	left += Math.cos(direction)*speed;
-	top += Math.sin(direction)*speed;
+	x += Math.cos(direction)*speed;
+	y += Math.sin(direction)*speed;
 
-	document.getElementById('consol').innerHTML = left + " "+top;
+	document.getElementById('consol').innerHTML = x + " "+y;
 	
 
 	draw();
 }
 
 function draw(){
-	document.getElementById('test').style.left = left+"vw";
-	document.getElementById('test').style.top = top+"vh";
+	document.getElementById('test').style.left = x+"vw";
+	document.getElementById('test').style.top = y+"vh";
 }
 
 
