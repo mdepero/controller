@@ -32,7 +32,6 @@ if (window.DeviceMotionEvent != undefined) {
 		ay = e.accelerationIncludingGravity.y;
 		az = e.accelerationIncludingGravity.z;
 
-		alert(ax);
 
 
 		// if ( e.rotationRate ) {
