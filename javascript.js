@@ -89,7 +89,7 @@ var left = 1000;
 function runGame(){
 	getData();
 	alert((left+accY)+"px");
-	document.getElementById('test').style.left = (left+accY*)+"px";
+	document.getElementById('test').style.left = (left+accY)+"px";
 }
 
 
