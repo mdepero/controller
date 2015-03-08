@@ -68,7 +68,7 @@ function getData(){
 	var url = serverRootURL+"serverfile.php?get&t=" + Math.random();
 	xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            return xmlhttp.responseText;
+            return String(xmlhttp.responseText);
         }
     }
     xmlhttp.open("GET", url, true);
