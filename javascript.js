@@ -74,7 +74,7 @@ function getData(){
 
 function runGame(){
 	var array = getData();
-	document.getElementById('consol').innerHTML = array[1];
+	document.getElementById('consol').innerHTML = array;
 }
 
 
