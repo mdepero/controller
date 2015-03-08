@@ -92,7 +92,7 @@ function runGame(){
 	left += Math.cos(direction)*speed;
 	top += Math.sin(direction)*speed;
 
-	document.getElementById('consol').innerHTML = top;
+	document.getElementById('consol').innerHTML = left + " "+top;
 	
 
 	draw();
