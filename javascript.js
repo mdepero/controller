@@ -90,7 +90,7 @@ function runGame(){
 	direction += accY/15.0;
 
 	left += Math.cos(direction);
-	top: += Math.sin(direction);
+	top += Math.sin(direction);
 	
 
 	draw();
