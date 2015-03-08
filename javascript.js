@@ -65,7 +65,7 @@ function setData( data ){
 // +----------------------------------------+
 
 
-var returnedData = "";
+var returnedData = "0,0,0";
 function getData(){
 	var url = serverRootURL+"serverfile.php?get&t=" + Math.random();
 	xmlhttp.onreadystatechange = function() {
