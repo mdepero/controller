@@ -48,7 +48,7 @@ function runSetter(){
 
 var data;
 function getAndSendValues(){
-	data = "["+ax+","+ay+","+az+"]";
+	data = ""+ax+","+ay+","+az+"";
 	document.getElementById('consol').innerHTML = data;
 	setData(data);
 }
@@ -80,7 +80,11 @@ function getData(){
 
 function runGame(){
 	getData();
-	document.getElementById('consol').innerHTML = returnedData;
+	var parsedData = returnedData.split(",");
+	accX = parsedData[0];
+	accY = parsedData[1];
+	accZ = parsedData[2];
+	document.getElementById('consol').innerHTML = accY;
 }
 
 
