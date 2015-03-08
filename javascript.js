@@ -22,15 +22,15 @@ if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
 // |          Controller Methods            |
 // +----------------------------------------+
 
-var ax,ay,bz;
+var ax=0,ay=0,az=0;
 
 if (window.DeviceMotionEvent != undefined) {
 	window.ondevicemotion = function(e) {
 
 
-		var ax = e.accelerationIncludingGravity.x;
-		var ay = e.accelerationIncludingGravity.y;
-		var az = e.accelerationIncludingGravity.z;
+		ax = e.accelerationIncludingGravity.x;
+		ay = e.accelerationIncludingGravity.y;
+		az = e.accelerationIncludingGravity.z;
 
 		alert(ax);
 
