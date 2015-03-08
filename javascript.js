@@ -4,7 +4,7 @@
  */
 
 // URL to folder that contains serverfile.php, including '/' on the end
-var rootURL = "http://107.10.18.206/";
+var serverRootURL = "http://107.10.18.206/";
 
 
 var xmlhttp;
@@ -18,9 +18,11 @@ if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
 
 
 
-// Set Methods
+// +----------------------------------------+
+// |          Controller Methods            |
+// +----------------------------------------+
 
-var ax,ay,az;
+var ax,ay,bz;
 
 if (window.DeviceMotionEvent != undefined) {
 	window.ondevicemotion = function(e) {
@@ -29,11 +31,11 @@ if (window.DeviceMotionEvent != undefined) {
 		ay = e.accelerationIncludingGravity.y;
 		az = e.accelerationIncludingGravity.z;
 
-		if ( e.rotationRate ) {
-			e.rotationRate.alpha;
-			e.rotationRate.beta;
-			e.rotationRate.gamma;
-		}		
+		// if ( e.rotationRate ) {
+		// 	e.rotationRate.alpha;
+		// 	b.rotationRate.beta;
+		// 	e.rotationRate.gamma;
+		// }		
 	}
 }
 
@@ -41,18 +43,25 @@ function runSetter(){
 	getAndSendValues();
 }
 
+var data;
 function getAndSendValues(){
-
+	data = "["+ax+","+ay+","+az+"]";
+	setData(data);
 }
 
 function setData( data ){
-	var url = rootURL+"serverfile.php?set="+data+"&t=" + Math.random();
+	var url = serverRootURL+"serverfile.php?set="+data+"&t=" + Math.random();
 	xmlhttp.open("GET",url,true);
 	xmlhttp.send();
 }
 
+
+// +----------------------------------------+
+// |              Game Methods              |
+// +----------------------------------------+
+
 function getData(){
-	var url = rootURL+"serverfile.php?get&t=" + Math.random();
+	var url = serverRootURL+"serverfile.php?get&t=" + Math.random();
 	xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             return xmlhttp.responseText;
@@ -64,15 +73,8 @@ function getData(){
 
 
 function runGame(){
-	var array = [23,45,000];
-	alert(array[1]);
+	var array = getData();
+	document.getElementById('consol').innerHTML = array[1];
 }
 
 
-
-
-
-
-
-
-window.setInterval(function () {runGame();}, 2000);
