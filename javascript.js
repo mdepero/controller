@@ -46,6 +46,7 @@ function runSetter(){
 var data;
 function getAndSendValues(){
 	data = "["+ax+","+ay+","+az+"]";
+	document.getElementById('consol').innerHTML = data;
 	setData(data);
 }
 
