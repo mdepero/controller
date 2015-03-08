@@ -80,16 +80,16 @@ function fetchData(){
 function getData(){
 	fetchData();
 	var parsedData = returnedData.split(",");
-	accX = parsedData[0];
-	accY = parsedData[1];
-	accZ = parsedData[2];
+	accX = parsedData[0]*1;
+	accY = parsedData[1]*1;
+	accZ = parsedData[2]*1;
 }
 
 var left = 1000;
 function runGame(){
 	getData();
 	alert((left+accY)+"px");
-	document.getElementById('test').style.left = (left+accY)+"px";
+	document.getElementById('test').style.left = (left+accY*)+"px";
 }
 
 
