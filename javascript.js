@@ -65,7 +65,7 @@ function setData( data ){
 // +----------------------------------------+
 
 
-var returnedData = "0,0,0",accX=0,accY=0,accZ=0,left = 50,top = 50;
+var returnedData = "0,0,0",accX=0,accY=0,accZ=0,left = 50,top = 50,direction = 0;
 function fetchData(){
 	var url = serverRootURL+"serverfile.php?get&t=" + Math.random();
 	xmlhttp.onreadystatechange = function() {
@@ -80,14 +80,17 @@ function fetchData(){
 function getData(){
 	fetchData();
 	var parsedData = returnedData.split(",");
-	accX = parsedData[0]*1;
-	accY = parsedData[1]*1;
-	accZ = parsedData[2]*1;
+	accX = parsedData[0]*1.0;
+	accY = parsedData[1]*1.0;
+	accZ = parsedData[2]*1.0;
 }
 
 function runGame(){
 	getData();
-	left += accY;
+	direction += accY/15.0;
+
+	left += Math.cos(direction);
+	top: += Math.sin(direction);
 	
 
 	draw();
