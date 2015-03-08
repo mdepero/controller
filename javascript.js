@@ -65,7 +65,7 @@ function setData( data ){
 // +----------------------------------------+
 
 
-var returnedData = "0,0,0",accX=0,accY=0,accZ=0;
+var returnedData = "0,0,0",accX=0,accY=0,accZ=0,left = 50,top = 50;
 function fetchData(){
 	var url = serverRootURL+"serverfile.php?get&t=" + Math.random();
 	xmlhttp.onreadystatechange = function() {
@@ -85,11 +85,17 @@ function getData(){
 	accZ = parsedData[2]*1;
 }
 
-var left = 1000;
 function runGame(){
 	getData();
 	left += accY;
-	document.getElementById('test').style.left = left+"px";
+	
+
+	draw();
+}
+
+function draw(){
+	document.getElementById('test').style.left = left+"vw";
+	document.getElementById('test').style.top = top+"vh";
 }
 
 
