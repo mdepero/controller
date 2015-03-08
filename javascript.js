@@ -28,10 +28,13 @@ if (window.DeviceMotionEvent != undefined) {
 	window.ondevicemotion = function(e) {
 
 		alert("started");
+		
+		ax = event.accelerationIncludingGravity.x * 5;
+		ay = event.accelerationIncludingGravity.y * 5;
 
-		ax = e.accelerationIncludingGravity.x;
-		ay = e.accelerationIncludingGravity.y;
-		az = e.accelerationIncludingGravity.z;
+		// ax = e.accelerationIncludingGravity.x;
+		// ay = e.accelerationIncludingGravity.y;
+		// az = e.accelerationIncludingGravity.z;
 
 		alert(ax);
 
