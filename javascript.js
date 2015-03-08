@@ -85,10 +85,10 @@ function getData(){
 	accZ = parsedData[2];
 }
 
-
+var left = 1000;
 function runGame(){
 	getData();
-	document.getElementById('consol').innerHTML = accY;
+	document.getElementById('test').style.left = (left+accY)+"px";
 }
 
 
