@@ -68,7 +68,7 @@ function getData(){
 	var url = serverRootURL+"serverfile.php?get&t=" + Math.random();
 	xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            document.getElementById('consol').innerHTML =  xmlhttp.responseText;
+            return xmlhttp.responseText;
         }
     }
     xmlhttp.open("GET", url, true);
@@ -78,7 +78,7 @@ function getData(){
 
 function runGame(){
 
-	getData();
+	document.getElementById('consol').innerHTML = getData();
 }
 
 
