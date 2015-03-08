@@ -27,11 +27,12 @@ var ax,ay,bz;
 if (window.DeviceMotionEvent != undefined) {
 	window.ondevicemotion = function(e) {
 
-		alert("Started");
 
 		ax = e.accelerationIncludingGravity.x;
 		ay = e.accelerationIncludingGravity.y;
 		az = e.accelerationIncludingGravity.z;
+
+		alert(ax);
 
 		// if ( e.rotationRate ) {
 		// 	e.rotationRate.alpha;
