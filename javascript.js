@@ -64,8 +64,10 @@ function setData( data ){
 // |              Game Methods              |
 // +----------------------------------------+
 
+var direction = 0,speed=1.5,fps=20;
 
-var returnedData = "0,0,0",accX=0,accY=0,accZ=0,x = 50,y = 50,direction = 0,speed=4;
+var returnedData = "0,0,0",accX=0,accY=0,accZ=0,x = 50,y = 50;
+	
 function fetchData(){
 	var url = serverRootURL+"serverfile.php?get&t=" + Math.random();
 	xmlhttp.onreadystatechange = function() {
