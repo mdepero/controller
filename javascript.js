@@ -68,7 +68,7 @@ function startSetter(){
 // |              Game Methods              |
 // +----------------------------------------+
 
-var direction = 0,speed=1.5,fps=2;
+var direction = 0,speed=1.5,fps=15;
 
 var returnedData = "0,0,0",accX=0,accY=0,accZ=0,x = 50,ydir = 50;
 	
