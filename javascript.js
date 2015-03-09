@@ -70,7 +70,7 @@ function startSetter(){
 
 var direction = 0,speed=1.5,fps=2;
 
-var returnedData = "0,0,0",accX=0,accY=0,accZ=0,x = 50,y = 50;
+var returnedData = "0,0,0",accX=0,accY=0,accZ=0,x = 50,ydir = 50;
 	
 function fetchData(){
 	var url = serverRootURL+"serverfile.php?get&t=" + Math.random();
@@ -96,9 +96,9 @@ function runGame(){
 	direction += accY/15.0;
 
 	x += Math.cos(direction)*speed;
-	y += Math.sin(direction)*speed;
+	ydir += Math.sin(direction)*speed;
 
-	document.getElementById('consol').innerHTML = x + " ||||| window.setInterval(function () {runGame();}, 80);"+y;
+	document.getElementById('consol').innerHTML = x + " ||||| "+ydir;
 	
 
 	draw();
