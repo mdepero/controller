@@ -110,7 +110,7 @@ function startGame(){
 
 function draw(){
 	document.getElementById('test').style.left = x+"vw";
-	document.getElementById('test').style.top = y+"vh";
+	document.getElementById('test').style.top = ydir+"vh";
 }
 
 
