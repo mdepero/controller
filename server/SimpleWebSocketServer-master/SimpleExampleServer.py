@@ -10,7 +10,7 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 '''
 
-import signal, sys, ssl, logging, threading
+import signal, sys, ssl, logging, threading, math
 from SimpleWebSocketServer import WebSocket, SimpleWebSocketServer, SimpleSSLWebSocketServer
 from optparse import OptionParser
 
@@ -18,6 +18,7 @@ logging.basicConfig(format='%(asctime)s %(message)s', level=logging.DEBUG)
 
 gameObjects = [];
 gameRunning = False;
+
 
 class GameObject:
 
@@ -31,18 +32,42 @@ class GameObject:
 
 
 
+
+
+def gameEngine():
+   threading.Timer(0.1, gameEngine).start()
+   for go in gameObjects:
+      go.x += math.cos(go.direction)*go.speed;
+      go.y += math.sin(go.direction)*go.speed;
+      print go.id, '- Still ingame object id', '(', go.x, ',', go.y,')'
+
+gameEngine()
+
+
+
+
+
 class SimpleConnect(WebSocket):
+
 
    def handleMessage(self):
       if self.data is None:
          self.data = ''
+      # Set Data From Message
+      for go in gameObjects:
+         if(go.id == self.address[1]):
+            go.direction = float(self.data)
+      # Send Game State to all connected devices
+
       
+
+   def broadCast(self, data):
+      # Broadcast Function
       for client in self.server.connections.itervalues():
-         if client != self:
-            try:
-               client.sendMessage(str(self.address[0]) + ' - ' + str(self.data))
-            except Exception as n:
-               print n
+         try:
+            client.sendMessage(str(self.address[0]) + ' - ' + str(self.data))
+         except Exception as n:
+            print n
 
 
    def handleConnected(self):
