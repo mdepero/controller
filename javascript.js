@@ -18,6 +18,9 @@ if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
 
 
 
+var speed=1.5,fps=10;
+
+
 // +----------------------------------------+
 // |          Controller Methods            |
 // +----------------------------------------+
@@ -68,9 +71,8 @@ function startSetter(){
 // |              Game Methods              |
 // +----------------------------------------+
 
-var direction = 0,speed=1.5,fps=15;
 
-var returnedData = "0,0,0",accX=0,accY=0,accZ=0,x = 50,ydir = 50;
+var returnedData = "0,0,0",accX=0,accY=0,accZ=0,x = 50,y = 50,direction = 0;
 	
 function fetchData(){
 	var url = serverRootURL+"serverfile.php?get&t=" + Math.random();
@@ -96,9 +98,9 @@ function runGame(){
 	direction += accY/15.0;
 
 	x += Math.cos(direction)*speed;
-	ydir += Math.sin(direction)*speed;
+	y += Math.sin(direction)*speed;
 
-	document.getElementById('consol').innerHTML = x + " ||||| "+ydir;
+	document.getElementById('consol').innerHTML = x + " ||||| "+y;
 	
 
 	draw();
@@ -110,7 +112,7 @@ function startGame(){
 
 function draw(){
 	document.getElementById('test').style.left = x+"vw";
-	document.getElementById('test').style.top = ydir+"vh";
+	document.getElementById('test').style.top = y+"vh";
 }
 
 
