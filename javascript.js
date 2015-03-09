@@ -59,12 +59,16 @@ function setData( data ){
 	xmlhttp.send();
 }
 
+function startSetter(){
+	window.setInterval(function () {runSetter();}, 1000/fps);
+}
+
 
 // +----------------------------------------+
 // |              Game Methods              |
 // +----------------------------------------+
 
-var direction = 0,speed=1.5,fps=20;
+var direction = 0,speed=1.5,fps=2;
 
 var returnedData = "0,0,0",accX=0,accY=0,accZ=0,x = 50,y = 50;
 	
@@ -98,6 +102,10 @@ function runGame(){
 	
 
 	draw();
+}
+
+function startGame(){
+	window.setInterval(function () {runGame();}, 1000/fps);
 }
 
 function draw(){
