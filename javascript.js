@@ -68,7 +68,7 @@ function startSetter(){
 // |              Game Methods              |
 // +----------------------------------------+
 
-var direction = 0,speed=1.5,fps=5;
+var direction = 0,speed=1.5,fps=2;
 
 var returnedData = "0,0,0",accX=0,accY=0,accZ=0,x = 50,y = 50;
 	
@@ -98,7 +98,7 @@ function runGame(){
 	x += Math.cos(direction)*speed;
 	y += Math.sin(direction)*speed;
 
-	document.getElementById('consol').innerHTML = x + " ||||| "+y;
+	document.getElementById('consol').innerHTML = x + " ||||| window.setInterval(function () {runGame();}, 80);"+y;
 	
 
 	draw();
