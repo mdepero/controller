@@ -1,2 +1,2 @@
 # Game Controller
-A demo for using AJAX to allow a phone to act as a controller for a game on a computer screen
+Practice with web sockets on both the server side and client side implementation
