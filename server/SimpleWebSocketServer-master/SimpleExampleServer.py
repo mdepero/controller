@@ -45,9 +45,10 @@ def gameEngine():
    threading.Timer((1.0/fps), gameEngine).start()
    # Run game physics and generate data string to return to all devices
    for go in gameObjects:
+      go.direction += go.deltaDirection
       go.x += math.cos(go.direction)*go.speed;
       go.y += math.sin(go.direction)*go.speed;
-      print go.id, '- ingame object id', '(', go.x, ',', go.y,')'
+      print go.id, '- ingame object', '(', go.x, ',', go.y,',', (go.direction*180/math.pi) ,')'
 
    
 
@@ -89,7 +90,7 @@ class SimpleConnect(WebSocket):
          for go in gameObjects:
             if(go.id == self.address[1]):
                # Set data members
-               go.direction = float(self.data)
+               go.deltaDirection = float(self.data)
 
 
    def handleConnected(self):
