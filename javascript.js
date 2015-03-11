@@ -189,6 +189,7 @@ function draw(){
 
 	$(".object").remove();
 	for(var i = 0;i< gameArray.length;i++){
-		writeConsol(gameArray[i]);
+		objArray = gameArray[i].split(",");
+		writeConsol(objArray[i]);
 	}
 }
