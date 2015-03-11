@@ -16,8 +16,15 @@ from optparse import OptionParser
 
 logging.basicConfig(format='%(asctime)s %(message)s', level=logging.DEBUG)
 
-gameObjects = [];
-gameRunning = False;
+
+# Input Variables
+speedInit = 1
+fps = 5.0
+
+
+
+# System Variables
+gameObjects = []
 
 
 class GameObject:
@@ -26,7 +33,7 @@ class GameObject:
       self.id = address
       self.x = 50
       self.y = 50
-      self.speed = 1
+      self.speed = speedInit
       self.direction = 0
       self.deltaDirection = 0
 
@@ -35,11 +42,15 @@ class GameObject:
 
 
 def gameEngine():
-   threading.Timer(0.1, gameEngine).start()
+   threading.Timer((1.0/fps), gameEngine).start()
+   # Run game physics and generate data string to return to all devices
    for go in gameObjects:
       go.x += math.cos(go.direction)*go.speed;
       go.y += math.sin(go.direction)*go.speed;
-      print go.id, '- Still ingame object id', '(', go.x, ',', go.y,')'
+      print go.id, '- ingame object id', '(', go.x, ',', go.y,')'
+
+   
+
 
 gameEngine()
 
@@ -53,21 +64,32 @@ class SimpleConnect(WebSocket):
    def handleMessage(self):
       if self.data is None:
          self.data = ''
-      # Set Data From Message
-      for go in gameObjects:
-         if(go.id == self.address[1]):
-            go.direction = float(self.data)
-      # Send Game State to all connected devices
-
-      
-
-   def broadCast(self, data):
-      # Broadcast Function
-      for client in self.server.connections.itervalues():
-         try:
-            client.sendMessage(str(self.address[0]) + ' - ' + str(self.data))
-         except Exception as n:
-            print n
+      # If the ping is requesting the game data, return the game data, otherwise accept the data into the engine
+      if(str(self.data)=="get"):
+         print "received a get"
+         # Data String Format: x1,y1|x2,y2|x3,y3|...xn,xy
+         dataString = ""
+         first = True
+         for go in gameObjects:
+            if(first): 
+               global first
+               first = False
+            else:
+               dataString += "|"
+            dataString += str(go.x)+","+str(go.y)
+         for client in self.server.connections.itervalues():
+            if client == self:
+               try:
+                  client.sendMessage(dataString)
+               except Exception as n:
+                  print n
+      elif(str(self.data)!="get"):
+         print "else"
+         # Set Data From Message
+         for go in gameObjects:
+            if(go.id == self.address[1]):
+               # Set data members
+               go.direction = float(self.data)
 
 
    def handleConnected(self):
