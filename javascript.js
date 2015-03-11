@@ -94,7 +94,7 @@ var url = "ws://107.10.18.206:8000/"
 // +----------------------------------------+
 // |          Controller Methods            |
 // +----------------------------------------+
-var fps = 10,turnRadius = 5;//Bigger turn radius = wider turns
+var fps = 10,turnRadius = 30;//Bigger turn radius = wider turns
 
 var ay=0;
 turnRadius = 1.0/turnRadius;
