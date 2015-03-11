@@ -37,6 +37,9 @@ class GameObject:
       self.direction = 0
       self.deltaDirection = 0
 
+   def selfDestruct(self):
+      del self
+
 
 
 
@@ -78,6 +81,8 @@ class SimpleConnect(WebSocket):
             else:
                dataString += "|"
             dataString += str(go.x)+","+str(go.y)
+            if(go.id == self.address[1]):
+               go.selfDestruct
          for client in self.server.connections.itervalues():
             if client == self:
                try:
