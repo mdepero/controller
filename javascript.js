@@ -186,11 +186,13 @@ function startGame(){
 }
 
 function draw(){
+
 	$(".object").remove();
 	for(var i = 0;i< gameArray.length;i++){
 		var objArray = gameArray[i].split(",");
-		$("body").append('<div class="object" id="'+i+'"></div>');
-		$("#"+i).css("left", objArray[0]);
-		$("#"+i).css("top", objArray[1]);
+		$("body").append('<div class="object">'+i+'/div>');
+		// $("body").append('<div class="object" id="'+i+'"></div>');
+		// $("#"+i).css("left", objArray[0]);
+		// $("#"+i).css("top", objArray[1]);
 	}
 }
