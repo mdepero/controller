@@ -107,11 +107,6 @@ if (window.DeviceMotionEvent != undefined) {
 		// az = e.accelerationIncludingGravity.z;
 
 
-		if(ay == null){
-			ay = Math.random();
-		}
-
-
 
 		// if ( e.rotationRate ) {
 		// 	e.rotationRate.alpha;
