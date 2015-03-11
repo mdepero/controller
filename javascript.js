@@ -112,11 +112,8 @@ if (window.DeviceMotionEvent != undefined) {
 		ay = e.accelerationIncludingGravity.y;
 		// az = e.accelerationIncludingGravity.z;
 
-		if(ay==null){
 			doDisconnect();
-			if(document.getElementById('consol').innerHTML != null)
-				writeConsol("Sorry, your computer does not support the accelerometer.");
-		}
+			writeConsol("Sorry, your computer does not support the accelerometer.");
 
 		// if ( e.rotationRate ) {
 		// 	e.rotationRate.alpha;
