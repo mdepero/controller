@@ -123,7 +123,6 @@ function runSetter(){
 var data;
 function getAndSendValues(){
 	data = ay;
-	data = 1;
 	writeConsol("Value Sent: "+data);
 	setData(data);
 }
