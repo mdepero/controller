@@ -110,7 +110,8 @@ if (window.DeviceMotionEvent != undefined) {
 
 		if(ay==null){
 			doDisconnect();
-			writeConsol("Sorry, your computer does not support the accelerometer.");
+			if(document.getElementById('consol').innerHTML != null)
+				writeConsol("Sorry, your computer does not support the accelerometer.");
 		}
 
 		// if ( e.rotationRate ) {
