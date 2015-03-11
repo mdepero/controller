@@ -28,6 +28,7 @@ var incomingData = "";
 	// document.myform.disconnectButton.disabled = false;
 
 	startSetter();
+	startGame();
   }
 
   function onClose(evt)
