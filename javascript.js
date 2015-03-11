@@ -94,7 +94,8 @@ var url = "ws://107.10.18.206:8000/"
 // +----------------------------------------+
 // |          Controller Methods            |
 // +----------------------------------------+
-var fps = 10,turnRadius = 30;//Bigger turn radius = wider turns
+var fps = 10;
+var turnRadius = 10;//Bigger turn radius = wider turns
 
 var ay=0;
 turnRadius = 1.0/turnRadius;
@@ -126,7 +127,7 @@ function runSetter(){
 
 var data;
 function getAndSendValues(){
-	data = ay;
+	data = ay*turnRadius;
 	writeConsol("Value Sent: "+data);
 	doSend(data);
 }
