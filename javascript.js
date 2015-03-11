@@ -170,9 +170,6 @@ var gameArray = [];
 function getData(){
 	doSend("get");
 	gameArray = incomingData.split("|");
-	accX = parsedData[0]*1.0;
-	accY = parsedData[1]*1.0;
-	accZ = parsedData[2]*1.0;
 }
 
 function runGame(){
