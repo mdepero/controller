@@ -129,7 +129,7 @@ var data;
 function getAndSendValues(){
 	data = ay;
 	writeConsol("Value Sent: "+data);
-	dosend(data);
+	doSend(data);
 }
 
 function startSetter(){
