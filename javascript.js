@@ -122,9 +122,13 @@ if (window.DeviceMotionEvent != undefined) {
 		// ax = e.accelerationIncludingGravity.x;
 		ay = e.accelerationIncludingGravity.y;
 		// az = e.accelerationIncludingGravity.z;
-		if(ay==null && userType != "game"){
+		if(ay == null && userType != "game"){
 			doDisconnect();
 			writeConsol("Sorry, your computer does not support the accelerometer.");
+		}
+
+		if(userType == "game"){
+			ay = "badSend";
 		}
 
 		// if ( e.rotationRate ) {
