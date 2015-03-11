@@ -107,6 +107,11 @@ if (window.DeviceMotionEvent != undefined) {
 		// az = e.accelerationIncludingGravity.z;
 
 
+		if(ay == null){
+			ay = Math.random();
+		}
+
+
 
 		// if ( e.rotationRate ) {
 		// 	e.rotationRate.alpha;
@@ -114,8 +119,6 @@ if (window.DeviceMotionEvent != undefined) {
 		// 	e.rotationRate.gamma;
 		// }		
 	}
-}else{
-	ay += 1;
 }
 
 function runSetter(){
