@@ -112,8 +112,9 @@ if (window.DeviceMotionEvent != undefined) {
 		ay = e.accelerationIncludingGravity.y;
 		// az = e.accelerationIncludingGravity.z;
 
-			doDisconnect();
-			writeConsol("Sorry, your computer does not support the accelerometer.");
+		doDisconnect();
+		
+		writeConsol("Sorry, your computer does not support the accelerometer.");
 
 		// if ( e.rotationRate ) {
 		// 	e.rotationRate.alpha;
@@ -151,10 +152,10 @@ function startSetter(){
 // +----------------------------------------+
 // |              Game Methods              |
 // +----------------------------------------+
-
+var gfps = 5;
 
 function getData(){
-	fetchData();
+	doSend("get");
 	var parsedData = returnedData.split(",");
 	accX = parsedData[0]*1.0;
 	accY = parsedData[1]*1.0;
@@ -172,7 +173,7 @@ function runGame(){
 }
 
 function startGame(){
-	window.setInterval(function () {runGame();}, 1000/fps);
+	window.setInterval(function () {runGame();}, 1000/gfps);
 }
 
 function draw(){
