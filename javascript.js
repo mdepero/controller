@@ -190,8 +190,8 @@ function draw(){
 	$(".object").remove();
 	for(var i = 0;i< gameArray.length;i++){
 		objArray = gameArray[i].split(",");
-		
 		$("#objects").append('<div class="object" id="'+i+'"></div>');
-		
+		alert("worked");
+
 	}
 }
