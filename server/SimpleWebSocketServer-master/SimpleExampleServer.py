@@ -48,7 +48,7 @@ def gameEngine():
       go.direction += go.deltaDirection
       go.x += math.cos(go.direction)*go.speed;
       go.y += math.sin(go.direction)*go.speed;
-      print go.id, '- ingame object', '(', go.x, ',', go.y,',', (go.direction*180/math.pi) ,')'
+      # print go.id, '- ingame object', '(', go.x, ',', go.y,',', (go.direction*180/math.pi) ,')'
 
    
 
@@ -67,7 +67,7 @@ class SimpleConnect(WebSocket):
          self.data = ''
       # If the ping is requesting the game data, return the game data, otherwise accept the data into the engine
       if(str(self.data)=="get"):
-         print "received a get"
+         # print "received a get"
          # Data String Format: x1,y1|x2,y2|x3,y3|...xn,xy
          dataString = ""
          first = True
@@ -85,7 +85,7 @@ class SimpleConnect(WebSocket):
                except Exception as n:
                   print n
       elif(str(self.data)!="get"):
-         print "received data"
+         # print "received data"
          # Set Data From Message
          for go in gameObjects:
             if(go.id == self.address[1]):

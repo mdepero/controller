@@ -1,6 +1,8 @@
 
 var url = "ws://107.10.18.206:8000/"
 
+var incomingData = "";
+
   function init()
   {
 	// document.myform.url.value = "ws://localhost:8000/"
@@ -39,6 +41,8 @@ var url = "ws://107.10.18.206:8000/"
   function onMessage(evt)
   {
     // writeToScreen("response: " + evt.data + '\n');
+
+    incomingData = evt.data;
   }
 
   function onError(evt)
@@ -135,4 +139,46 @@ function getAndSendValues(){
 
 function startSetter(){
 	window.setInterval(function () {runSetter();}, 1000/fps);
+}
+
+
+
+
+
+
+
+
+
+
+
+// +----------------------------------------+
+// |              Game Methods              |
+// +----------------------------------------+
+
+
+function getData(){
+	fetchData();
+	var parsedData = returnedData.split(",");
+	accX = parsedData[0]*1.0;
+	accY = parsedData[1]*1.0;
+	accZ = parsedData[2]*1.0;
+}
+var gameArray = [];
+function runGame(){
+	getData();
+	gameArray = incomingData.split("|");
+
+	writeConsol(gameArray);
+
+
+	//draw();
+}
+
+function startGame(){
+	window.setInterval(function () {runGame();}, 1000/fps);
+}
+
+function draw(){
+	document.getElementById('test').style.left = x+"vw";
+	document.getElementById('test').style.top = y+"vh";
 }
