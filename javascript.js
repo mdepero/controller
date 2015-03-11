@@ -165,17 +165,18 @@ function startSetter(){
 // +----------------------------------------+
 var gfps = 5;
 
+
+var gameArray = [];
 function getData(){
 	doSend("get");
-	var parsedData = returnedData.split(",");
+	gameArray = incomingData.split("|");
 	accX = parsedData[0]*1.0;
 	accY = parsedData[1]*1.0;
 	accZ = parsedData[2]*1.0;
 }
-var gameArray = [];
+
 function runGame(){
 	getData();
-	gameArray = incomingData.split("|");
 
 	writeConsol(gameArray);
 
