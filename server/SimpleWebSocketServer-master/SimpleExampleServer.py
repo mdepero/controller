@@ -84,7 +84,7 @@ class SimpleConnect(WebSocket):
                except Exception as n:
                   print n
       elif(str(self.data)!="get"):
-         print "else"
+         print "received data"
          # Set Data From Message
          for go in gameObjects:
             if(go.id == self.address[1]):
