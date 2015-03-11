@@ -114,6 +114,8 @@ if (window.DeviceMotionEvent != undefined) {
 		// 	e.rotationRate.gamma;
 		// }		
 	}
+}else{
+	ay += 1;
 }
 
 function runSetter(){
@@ -124,12 +126,7 @@ var data;
 function getAndSendValues(){
 	data = ay;
 	writeConsol("Value Sent: "+data);
-	setData(data);
-}
-
-function setData( data ){
-	
-	doSend(data);
+	dosend(data);
 }
 
 function startSetter(){
