@@ -25,7 +25,7 @@ var url = "ws://107.10.18.206:8000/"
 	// document.myform.connectButton.disabled = true;
 	// document.myform.disconnectButton.disabled = false;
 
-	runSetter();
+	startSetter();
   }
 
   function onClose(evt)
