@@ -11,11 +11,12 @@ var url = "ws://localhost:8000/"
 
   function doConnect()
   {
-    websocket = new WebSocket(document.myform.url.value);
+    websocket = new WebSocket(url);
     websocket.onopen = function(evt) { onOpen(evt) };
     websocket.onclose = function(evt) { onClose(evt) };
     websocket.onmessage = function(evt) { onMessage(evt) };
     websocket.onerror = function(evt) { onError(evt) };
+
   }
 
   function onOpen(evt)
@@ -120,14 +121,14 @@ function runSetter(){
 var data;
 function getAndSendValues(){
 	data = ay;
+	data = 1;
 	writeConsol("Value Sent: "+data);
 	setData(data);
 }
 
 function setData( data ){
-	var url = serverRootURL+"serverfile.php?set="+data+"&t=" + Math.random();
-	xmlhttp.open("GET",url,true);
-	xmlhttp.send();
+	
+	doSend(data);
 }
 
 function startSetter(){
