@@ -1,5 +1,5 @@
 
-var url = "ws://localhost:8000/"
+var url = "ws://107.10.18.206:8000/"
 
   function init()
   {
@@ -24,6 +24,8 @@ var url = "ws://localhost:8000/"
  //    writeToScreen("connected\n");
 	// document.myform.connectButton.disabled = true;
 	// document.myform.disconnectButton.disabled = false;
+
+	runSetter();
   }
 
   function onClose(evt)
