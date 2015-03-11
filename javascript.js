@@ -2,6 +2,13 @@
 var url = "ws://107.10.18.206:8000/"
 
 var incomingData = "";
+var userType = "";
+function setGameUser(){
+	userType = "game";
+}
+function setControllerUser(){
+	userType = "controller";
+}
 
   function init()
   {
@@ -26,9 +33,12 @@ var incomingData = "";
  //    writeToScreen("connected\n");
 	// document.myform.connectButton.disabled = true;
 	// document.myform.disconnectButton.disabled = false;
-
-	startSetter();
-	startGame();
+	if(userType == "game"){
+		startGame();
+	}else{
+		startSetter();
+	}
+	
   }
 
   function onClose(evt)
@@ -112,10 +122,10 @@ if (window.DeviceMotionEvent != undefined) {
 		// ax = e.accelerationIncludingGravity.x;
 		ay = e.accelerationIncludingGravity.y;
 		// az = e.accelerationIncludingGravity.z;
-
-		doDisconnect();
-		
-		writeConsol("Sorry, your computer does not support the accelerometer.");
+		if(ay==null && userType != "game"){
+			doDisconnect();
+			writeConsol("Sorry, your computer does not support the accelerometer.");
+		}
 
 		// if ( e.rotationRate ) {
 		// 	e.rotationRate.alpha;
