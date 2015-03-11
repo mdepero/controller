@@ -127,10 +127,6 @@ if (window.DeviceMotionEvent != undefined) {
 			writeConsol("Sorry, your computer does not support the accelerometer.");
 		}
 
-		if(userType == "game"){
-			ay = "badSend";
-		}
-
 		// if ( e.rotationRate ) {
 		// 	e.rotationRate.alpha;
 		// 	b.rotationRate.beta;
@@ -182,7 +178,7 @@ function runGame(){
 	writeConsol(gameArray);
 
 
-	//draw();
+	draw();
 }
 
 function startGame(){
@@ -190,6 +186,11 @@ function startGame(){
 }
 
 function draw(){
-	document.getElementById('test').style.left = x+"vw";
-	document.getElementById('test').style.top = y+"vh";
+	$(".object").remove();
+	for(var i = 0;i< gameArray.length;i++){
+		var objArray = gameArray[i].split(",");
+		$("body").append('<div class="object" id="'+i+'"></div>');
+		$("#"+i).css("left", objArray[0]);
+		$("#"+i).css("top", objArray[1]);
+	}
 }
