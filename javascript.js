@@ -177,7 +177,7 @@ function getData(){
 function runGame(){
 	getData();
 
-	// writeConsol(gameArray);
+	writeConsol(gameArray);
 
 
 	draw();
