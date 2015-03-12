@@ -196,7 +196,7 @@ function draw(){
 
 		gameObject = gameArray[i].split(",");
 
-		$("#gameSpace").append('<div class="object" style="left:'+gameObject[0]+'vh;top:'+gameObject[1]+'vw;"></div>');
+		$("#gameSpace").append('<div class="object" style="left:'+gameObject[0]+'vw;top:'+gameObject[1]+'vh;"></div>');
 
 	}
 }
