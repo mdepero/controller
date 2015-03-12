@@ -109,7 +109,7 @@ function setControllerUser(){
 // +----------------------------------------+
 // |          Controller Methods            |
 // +----------------------------------------+
-var fps = 10;
+var fps = 6;
 var turnRadius = 50;//Bigger turn radius = wider turns
 
 var ay=0;
@@ -163,7 +163,7 @@ function startSetter(){
 // +----------------------------------------+
 // |              Game Methods              |
 // +----------------------------------------+
-var gfps = 10;
+var gfps = 18;
 
 var numObjects = 0;
 
