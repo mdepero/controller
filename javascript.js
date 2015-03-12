@@ -110,7 +110,7 @@ function setControllerUser(){
 // |          Controller Methods            |
 // +----------------------------------------+
 var fps = 6;
-var turnRadius = 50;//Bigger turn radius = wider turns
+var turnRadius = .3;//Bigger turn radius = wider turns
 
 var ay=0;
 turnRadius = 1.0/turnRadius;
@@ -196,7 +196,7 @@ function draw(){
 
 		gameObject = gameArray[i].split(",");
 
-		$("#gameSpace").append('<div class="object" style="left:'+gameObject[0]+'px;top:'+gameObject[1]+'px;"></div>');
+		$("#gameSpace").append('<div class="object" style="left:'+gameObject[0]+'vh;top:'+gameObject[1]+'vw;"></div>');
 
 	}
 }
