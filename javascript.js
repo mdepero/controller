@@ -110,7 +110,7 @@ function setControllerUser(){
 // |          Controller Methods            |
 // +----------------------------------------+
 var fps = 10;
-var turnRadius = 10;//Bigger turn radius = wider turns
+var turnRadius = 50;//Bigger turn radius = wider turns
 
 var ay=0;
 turnRadius = 1.0/turnRadius;

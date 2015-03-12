@@ -18,7 +18,7 @@ logging.basicConfig(format='%(asctime)s %(message)s', level=logging.DEBUG)
 
 
 # Input Variables
-speedInit = 1
+speedInit = 10
 fps = 5.0
 
 
