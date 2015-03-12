@@ -189,7 +189,7 @@ function startGame(){
 
 function draw(){
 
-	while(numObjects != )
+	//while(numObjects != )
 
 	for(var i = 0;i< gameArray.length;i++){
 		objArray = gameArray[i].split(",");
