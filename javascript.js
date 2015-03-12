@@ -163,7 +163,9 @@ function startSetter(){
 // +----------------------------------------+
 // |              Game Methods              |
 // +----------------------------------------+
-var gfps = 5;
+var gfps = 15;
+
+var numObjects = 0;
 
 
 var gameArray = [];
@@ -187,7 +189,8 @@ function startGame(){
 
 function draw(){
 
-	$(".object").remove();
+	while(numObjects != )
+
 	for(var i = 0;i< gameArray.length;i++){
 		objArray = gameArray[i].split(",");
 
