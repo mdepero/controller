@@ -163,7 +163,7 @@ function startSetter(){
 // +----------------------------------------+
 // |              Game Methods              |
 // +----------------------------------------+
-var gfps = 15;
+var gfps = 10;
 
 var numObjects = 0;
 
@@ -177,7 +177,7 @@ function getData(){
 function runGame(){
 	getData();
 
-	writeConsol(gameArray);
+	// writeConsol(gameArray);
 
 
 	draw();
@@ -189,10 +189,14 @@ function startGame(){
 
 function draw(){
 
-	//while(numObjects != )
+	$("#gameSpace").html("");
+
 
 	for(var i = 0;i< gameArray.length;i++){
-		objArray = gameArray[i].split(",");
+
+		gameObject = gameArray[i].split(",");
+
+		$("#gameSpace").append('<div class="object" style="left:'+gameObject[0]+'px;top:'+gameObject[1]+'px;"></div>');
 
 	}
 }
