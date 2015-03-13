@@ -125,8 +125,10 @@ if (window.DeviceMotionEvent != undefined) {
 		if(!started){
 			if(ax<2.5){
 				writeConsol("Please turn your phone at least 180 degrees before starting! (in landscape mode)");
+				document.getElementById('startButton').disabled = true;
 			}else {
 				writeConsol("Ready to start");
+				document.getElementById('startButton').disabled = false;
 			}
 		}
 
@@ -134,6 +136,7 @@ if (window.DeviceMotionEvent != undefined) {
 		if(ay == null && userType != "game"){
 			doDisconnect();
 			writeConsol("Sorry, your computer does not support the accelerometer.");
+			document.getElementById('startButton').disabled = true;
 		}
 
 		// if ( e.rotationRate ) {
