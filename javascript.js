@@ -121,7 +121,7 @@ if (window.DeviceMotionEvent != undefined) {
 		ay = e.accelerationIncludingGravity.y;
 
 		if(ax<0){
-			writeConsol("Please turn your phone 180 degrees before starting!");
+			writeConsol("Please turn your phone at least 180 degrees before starting! (in landscape mode)");
 		}else{
 			writeConsol("Ready to start");
 		}
