@@ -163,7 +163,7 @@ function startSetter(){
 // +----------------------------------------+
 // |              Game Methods              |
 // +----------------------------------------+
-var gfps = 14;
+var gfps = 30;
 
 var numObjects = 0;
 
