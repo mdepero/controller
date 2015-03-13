@@ -3,7 +3,6 @@ var url = "ws://107.10.18.206:8000/"
 
 var incomingData = "";
 var userType = "";
-var started = false;
 function setGameUser(){
 	userType = "game";
 }
@@ -113,7 +112,8 @@ var fps = 6;
 var turnRadius = 40;//Bigger turn radius = wider turns
 
 var ay=0;
-turnRadius = 1.0/turnRadius;
+var turnRadius = 1.0/turnRadius;
+var started = false;
 
 if (window.DeviceMotionEvent != undefined) {
 	window.ondevicemotion = function(e) {
@@ -122,10 +122,12 @@ if (window.DeviceMotionEvent != undefined) {
 		ax = e.accelerationIncludingGravity.x;
 		ay = e.accelerationIncludingGravity.y;
 
-		if(ax<2.5 && started == false){
-			writeConsol("Please turn your phone at least 180 degrees before starting! (in landscape mode)");
-		}else if(started== false{
-			writeConsol("Ready to start");
+		if(!started){
+			if(ax<2.5){
+				writeConsol("Please turn your phone at least 180 degrees before starting! (in landscape mode)");
+			}else {
+				writeConsol("Ready to start");
+			}
 		}
 
 		// az = e.accelerationIncludingGravity.z;
