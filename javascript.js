@@ -3,6 +3,7 @@ var url = "ws://107.10.18.206:8000/"
 
 var incomingData = "";
 var userType = "";
+var started = false;
 function setGameUser(){
 	userType = "game";
 }
@@ -15,6 +16,7 @@ function setControllerUser(){
 	// document.myform.url.value = "ws://localhost:8000/"
 	// document.myform.inputtext.value = "Hello World!"
 	// document.myform.disconnectButton.disabled = true;
+	started = true;
 	doConnect();
   }
 
@@ -120,9 +122,9 @@ if (window.DeviceMotionEvent != undefined) {
 		ax = e.accelerationIncludingGravity.x;
 		ay = e.accelerationIncludingGravity.y;
 
-		if(ax<2.5){
+		if(ax<2.5 && started == false){
 			writeConsol("Please turn your phone at least 180 degrees before starting! (in landscape mode)");
-		}else{
+		}else if(started== false{
 			writeConsol("Ready to start");
 		}
 
