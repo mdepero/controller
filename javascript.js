@@ -79,8 +79,6 @@ function setControllerUser(){
 
   }
 
-  window.addEventListener("load", init, false);
-
 
    function sendText() {
 		doSend( document.myform.inputtext.value );
@@ -119,8 +117,13 @@ if (window.DeviceMotionEvent != undefined) {
 	window.ondevicemotion = function(e) {
 
 
-		// ax = e.accelerationIncludingGravity.x;
+		ax = e.accelerationIncludingGravity.x;
 		ay = e.accelerationIncludingGravity.y;
+
+		if(ax<0){
+			writeConsol("Please turn your phone 180 degrees before starting!");
+		}
+
 		// az = e.accelerationIncludingGravity.z;
 		if(ay == null && userType != "game"){
 			doDisconnect();
