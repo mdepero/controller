@@ -124,7 +124,7 @@ if (window.DeviceMotionEvent != undefined) {
 
 		if(!started){
 			if(ax<4){
-				writeConsol("Please turn your phone at least 180 degrees before starting! (in landscape mode)");
+				writeConsol("Please turn your phone at least 180 degrees before starting! (into landscape mode)");
 				document.getElementById('startButton').disabled = true;
 			}else {
 				writeConsol("Ready to start");
