@@ -122,6 +122,8 @@ if (window.DeviceMotionEvent != undefined) {
 
 		if(ax<0){
 			writeConsol("Please turn your phone 180 degrees before starting!");
+		}else{
+			writeConsol("Ready to start");
 		}
 
 		// az = e.accelerationIncludingGravity.z;
