@@ -1,5 +1,5 @@
 
-var url = "ws://107.10.27.126:8000/"
+var url = "ws://server.mattdepero.com:8000/"
 
 var incomingData = "";
 var userType = "";
